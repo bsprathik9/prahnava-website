@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Menu, X, Phone as PhoneIcon } from "lucide-react";
+import { Menu, X, Phone as PhoneIcon } from "lucide-react";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -268,12 +268,6 @@ export function HeroSection() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
             <AnimatedGroup variants={transitionVariants}>
-              <span className="inline-flex items-center gap-3 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-300 shadow-md">
-                <span>Prahnava | AI-First Engineering</span>
-                <span className="block h-4 w-px bg-violet-500/30" />
-                <ArrowRight className="size-3" />
-              </span>
-
               <h1 className="mt-6 max-w-4xl mx-auto text-balance text-5xl md:text-7xl lg:mt-10 xl:text-[5.25rem] font-semibold text-white">
                 We Build Intelligent Systems That Think, Learn, and Scale
               </h1>

@@ -35,7 +35,7 @@ export function CTASection() {
             we&apos;re ready.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex items-center justify-center">
             <a
               href="mailto:services@prahnava.com"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-full p-px"
@@ -48,13 +48,6 @@ export function CTASection() {
                   Book a Discovery Call
                 </span>
               </div>
-            </a>
-
-            <a
-              href="mailto:services@prahnava.com"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-medium text-zinc-400 hover:text-white transition-colors"
-            >
-              services@prahnava.com
             </a>
           </div>
         </motion.div>
