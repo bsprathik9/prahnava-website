@@ -34,19 +34,19 @@ export function ProductDetailPage({ product }: ProductDetailPageProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-start gap-6 mb-8"
+            className="flex flex-col items-center text-center mb-8"
           >
-            <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl`}>
-              <Icon className="w-10 h-10 md:w-12 md:h-12 text-white" />
+            <div className={`w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br ${product.gradient} flex items-center justify-center shadow-xl mb-6`}>
+              <Icon className="w-12 h-12 md:w-16 md:h-16 text-white" />
             </div>
-            <div>
+            <div className="max-w-4xl">
               <span className="text-sm text-cyan-400 mb-2 block uppercase tracking-wider">
                 {product.subtitle}
               </span>
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
                 {product.title}
               </h1>
-              <p className="text-xl text-zinc-400 max-w-3xl">
+              <p className="text-xl text-zinc-400 mx-auto">
                 {product.description}
               </p>
             </div>
