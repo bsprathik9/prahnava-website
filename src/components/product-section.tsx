@@ -171,12 +171,9 @@ export function ProductSection() {
                   <product.icon className={`h-6 w-6 ${product.iconColor}`} />
                 </div>
                 <div>
-                  <h3
-                    className={`text-lg font-bold bg-gradient-to-r ${product.gradient} bg-clip-text text-transparent`}
-                  >
-                    {product.name}
+                  <h3 className="text-xl font-bold text-white">
+                    {product.tagline}
                   </h3>
-                  <p className="text-sm text-zinc-400">{product.tagline}</p>
                 </div>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed">
@@ -203,12 +200,9 @@ export function ProductSection() {
                   <product.icon className={`h-6 w-6 ${product.iconColor}`} />
                 </div>
                 <div>
-                  <h3
-                    className={`text-lg font-bold bg-gradient-to-r ${product.gradient} bg-clip-text text-transparent`}
-                  >
-                    {product.name}
+                  <h3 className="text-xl font-bold text-white">
+                    {product.tagline}
                   </h3>
-                  <p className="text-sm text-zinc-400">{product.tagline}</p>
                 </div>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed">
