@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-950">
       <HeroHeader />
-      {/* <AnimatedHero /> */}
+      <AnimatedHero />
       <HeroSection />
       <Features />
       <ProductSection />

@@ -6,7 +6,6 @@ const brandSuffixes = [
   "NOVA",
   "NEVA",
   "TECHNA",
-  "INOVA",
   "DATA",
   "LOGIX",
   "SYNVA",
@@ -19,7 +18,6 @@ const taglines = [
   "New star, explosion of innovation",
   "New era feel, modern and fresh",
   "Direct tech association, futuristic tone",
-  "Innovation + Nova blend",
   "Perfect if you're data/AI focused",
   "Logic, smart systems vibe",
   "Sync/synergy, connected tech",
@@ -30,7 +28,7 @@ const taglines = [
 
 export function AnimatedHero() {
   return (
-    <section className="w-full relative overflow-hidden pt-28 md:pt-36 pb-10">
+    <section className="w-full relative overflow-hidden pt-32 md:pt-40 lg:pt-48 pb-4">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-violet-600/20 rounded-full blur-[128px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[128px]" />
@@ -44,7 +42,7 @@ export function AnimatedHero() {
             morphTime={1.2}
             cooldownTime={1.8}
             className="w-full"
-            textClassName="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight"
+            textClassName="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight"
             prefixText="PRAH"
           />
         </div>
