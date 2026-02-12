@@ -259,16 +259,16 @@ function ContactModal({
 
 export function HeroSection() {
   return (
-    <section>
+    <section className="pt-32 md:pt-40 lg:pt-48">
       <div className="relative pb-10">
         <div
           aria-hidden
           className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,rgb(9,9,11)_75%)]"
         />
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
+          <div className="text-center sm:mx-auto lg:mr-auto">
             <AnimatedGroup variants={transitionVariants}>
-              <h1 className="mt-6 max-w-4xl mx-auto text-balance text-5xl md:text-7xl lg:mt-10 xl:text-[5.25rem] font-semibold text-white">
+              <h1 className="max-w-4xl mx-auto text-balance text-5xl md:text-7xl xl:text-[5.25rem] font-semibold text-white">
                 We Build Intelligent Systems That Think, Learn, and Scale
               </h1>
               <p className="mx-auto mt-6 max-w-2xl text-balance text-lg text-zinc-400">
