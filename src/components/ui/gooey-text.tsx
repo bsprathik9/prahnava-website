@@ -11,6 +11,7 @@ interface GooeyTextProps {
   cooldownTime?: number;
   className?: string;
   textClassName?: string;
+  prefixText?: string;
 }
 
 export function GooeyText({
@@ -20,6 +21,7 @@ export function GooeyText({
   cooldownTime = 0.25,
   className,
   textClassName,
+  prefixText,
 }: GooeyTextProps) {
   const text1Ref = React.useRef<HTMLSpanElement>(null);
   const text2Ref = React.useRef<HTMLSpanElement>(null);
@@ -124,24 +126,40 @@ export function GooeyText({
         </defs>
       </svg>
 
-      <div
-        className="relative w-full flex items-center justify-center h-20 md:h-28"
-        style={{ filter: "url(#gooey-threshold)" }}
-      >
-        <span
-          ref={text1Ref}
-          className={cn(
-            "absolute inset-0 flex items-center justify-center select-none",
-            textClassName
-          )}
-        />
-        <span
-          ref={text2Ref}
-          className={cn(
-            "absolute inset-0 flex items-center justify-center select-none",
-            textClassName
-          )}
-        />
+      <div className="relative w-full flex items-center justify-center h-20 md:h-28">
+        {prefixText && (
+          <span
+            className={cn(
+              "select-none z-10",
+              textClassName
+            )}
+          >
+            {prefixText}
+          </span>
+        )}
+        <div
+          className={prefixText ? "relative" : "relative w-full"}
+          style={{ filter: "url(#gooey-threshold)" }}
+        >
+          <span
+            ref={text1Ref}
+            className={cn(
+              prefixText
+                ? "select-none whitespace-nowrap"
+                : "absolute inset-0 flex items-center justify-center select-none",
+              textClassName
+            )}
+          />
+          <span
+            ref={text2Ref}
+            className={cn(
+              prefixText
+                ? "absolute left-0 select-none whitespace-nowrap"
+                : "absolute inset-0 flex items-center justify-center select-none",
+              textClassName
+            )}
+          />
+        </div>
       </div>
 
       {taglines && taglines.length > 0 && (

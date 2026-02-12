@@ -2,17 +2,17 @@
 
 import { GooeyText } from "@/components/ui/gooey-text";
 
-const brandNames = [
-  "PRAHNOVA",
-  "PRAHNEVA",
-  "PRAHTECHNA",
-  "PRAHINOVA",
-  "PRAHDATA",
-  "PRAHLOGIX",
-  "PRAHSYNVA",
-  "PRAHGENVA",
-  "PRAHDIGNA",
-  "PRAHVERTA",
+const brandSuffixes = [
+  "NOVA",
+  "NEVA",
+  "TECHNA",
+  "INOVA",
+  "DATA",
+  "LOGIX",
+  "SYNVA",
+  "GENVA",
+  "DIGNA",
+  "VERTA",
 ];
 
 const taglines = [
@@ -39,12 +39,13 @@ export function AnimatedHero() {
       <div className="container mx-auto max-w-6xl px-6">
         <div className="flex items-center justify-center flex-col">
           <GooeyText
-            texts={brandNames}
+            texts={brandSuffixes}
             taglines={taglines}
             morphTime={1.2}
             cooldownTime={1.8}
             className="w-full"
             textClassName="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight"
+            prefixText="PRAH"
           />
         </div>
       </div>
