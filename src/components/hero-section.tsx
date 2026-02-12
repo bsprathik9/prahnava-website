@@ -259,8 +259,8 @@ function ContactModal({
 
 export function HeroSection() {
   return (
-    <section className="pt-4">
-      <div className="relative pb-10">
+    <section className="pt-8 md:pt-12 pb-16 md:pb-20">
+      <div className="relative">
         <div
           aria-hidden
           className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,rgb(9,9,11)_75%)]"
