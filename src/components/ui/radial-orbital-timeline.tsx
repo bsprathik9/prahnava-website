@@ -113,7 +113,7 @@ export default function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 250; // Increased from 200 to 250 for larger circle
+    const radius = 320; // Increased from 250 to 320 for much larger circle
     const radian = (angle * Math.PI) / 180;
 
     const x = radius * Math.cos(radian) + centerOffset.x;
@@ -171,25 +171,31 @@ export default function RadialOrbitalTimeline({
         </p>
       </div>
 
-      <div className="relative w-full max-w-6xl h-[800px] flex items-center justify-center">
+      <div className="relative w-full max-w-7xl h-[900px] md:h-[1000px] flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}
           style={{
-            perspective: "1000px",
+            perspective: "1500px",
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          <div className="absolute w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10">
-            <div className="absolute w-24 h-24 rounded-full border border-white/20 animate-ping opacity-70"></div>
+          {/* Central Core - Larger and more prominent */}
+          <div className="absolute w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse flex items-center justify-center z-10 shadow-2xl shadow-purple-500/50">
+            <div className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-white/30 animate-ping opacity-70"></div>
             <div
-              className="absolute w-28 h-28 rounded-full border border-white/10 animate-ping opacity-50"
+              className="absolute w-40 h-40 md:w-48 md:h-48 rounded-full border border-white/20 animate-ping opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
-            <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md"></div>
+            <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white/90 backdrop-blur-md shadow-lg"></div>
           </div>
 
-          <div className="absolute w-[500px] h-[500px] rounded-full border border-white/10"></div>
+          {/* Orbital Ring - Much larger */}
+          <div className="absolute w-[640px] h-[640px] md:w-[700px] md:h-[700px] rounded-full border-2 border-white/20 shadow-lg shadow-white/5"></div>
+
+          {/* Additional decorative rings */}
+          <div className="absolute w-[580px] h-[580px] md:w-[640px] md:h-[640px] rounded-full border border-white/10"></div>
+          <div className="absolute w-[700px] h-[700px] md:w-[760px] md:h-[760px] rounded-full border border-white/5"></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -220,45 +226,47 @@ export default function RadialOrbitalTimeline({
                     isPulsing ? "animate-pulse duration-1000" : ""
                   }`}
                   style={{
-                    background: `radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)`,
-                    width: `${item.energy * 0.5 + 40}px`,
-                    height: `${item.energy * 0.5 + 40}px`,
-                    left: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
-                    top: `-${(item.energy * 0.5 + 40 - 40) / 2}px`,
+                    background: isExpanded
+                      ? `radial-gradient(circle, rgba(139,92,246,0.4) 0%, rgba(6,182,212,0.2) 50%, rgba(255,255,255,0) 100%)`
+                      : `radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(139,92,246,0.1) 50%, rgba(255,255,255,0) 100%)`,
+                    width: `${item.energy * 0.8 + 80}px`,
+                    height: `${item.energy * 0.8 + 80}px`,
+                    left: `-${(item.energy * 0.8 + 80 - 80) / 2}px`,
+                    top: `-${(item.energy * 0.8 + 80 - 80) / 2}px`,
                   }}
                 ></div>
 
                 <div
                   className={`
-                  w-10 h-10 rounded-full flex items-center justify-center
+                  w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center
                   ${
                     isExpanded
-                      ? "bg-white text-black"
+                      ? "bg-gradient-to-br from-white via-white to-cyan-100 text-black"
                       : isRelated
-                      ? "bg-white/50 text-black"
-                      : "bg-black text-white"
+                      ? "bg-gradient-to-br from-white/70 to-white/50 text-black"
+                      : "bg-gradient-to-br from-zinc-900 to-black text-white"
                   }
-                  border-2
+                  border-3
                   ${
                     isExpanded
-                      ? "border-white shadow-lg shadow-white/30"
+                      ? "border-white shadow-2xl shadow-white/40"
                       : isRelated
-                      ? "border-white animate-pulse"
-                      : "border-white/40"
+                      ? "border-white animate-pulse shadow-lg shadow-white/20"
+                      : "border-white/50 shadow-lg shadow-white/10"
                   }
-                  transition-all duration-300 transform
-                  ${isExpanded ? "scale-150" : ""}
+                  transition-all duration-500 transform hover:scale-110
+                  ${isExpanded ? "scale-125" : ""}
                 `}
                 >
-                  <Icon size={16} />
+                  <Icon size={isExpanded ? 32 : 24} className={isExpanded ? "md:w-10 md:h-10" : "md:w-8 md:h-8"} />
                 </div>
 
                 <div
                   className={`
-                  absolute top-12  whitespace-nowrap
-                  text-xs font-semibold tracking-wider
+                  absolute top-20 md:top-24 whitespace-nowrap
+                  text-sm md:text-base font-bold tracking-wider
                   transition-all duration-300
-                  ${isExpanded ? "text-white scale-125" : "text-white/70"}
+                  ${isExpanded ? "text-white scale-110" : "text-white/80 hover:text-white"}
                 `}
                 >
                   {item.title}
