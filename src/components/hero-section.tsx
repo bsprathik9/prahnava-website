@@ -259,7 +259,7 @@ function ContactModal({
 
 export function HeroSection() {
   return (
-    <section className="pt-32 md:pt-40 lg:pt-48">
+    <section className="pt-4">
       <div className="relative pb-10">
         <div
           aria-hidden
