@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight, Link, Zap } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { ArrowRight, Link as LinkIcon, Zap, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface TimelineItem {
   id: number;
+  slug?: string;
   title: string;
   date: string;
   content: string;
@@ -24,6 +26,7 @@ interface RadialOrbitalTimelineProps {
 export default function RadialOrbitalTimeline({
   timelineData,
 }: RadialOrbitalTimelineProps) {
+  const router = useRouter();
   const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
     {}
   );
@@ -288,10 +291,23 @@ export default function RadialOrbitalTimeline({
                     <CardContent className="text-xs text-white/80 pt-0">
                       <p className="leading-relaxed">{item.content}</p>
 
+                      {item.slug && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/products/${item.slug}`);
+                          }}
+                          className="mt-4 w-full flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+                        >
+                          View Full Details
+                          <ExternalLink className="w-4 h-4" />
+                        </button>
+                      )}
+
                       {item.relatedIds.length > 0 && (
                         <div className="mt-4 pt-3 border-t border-white/10">
                           <div className="flex items-center mb-2">
-                            <Link size={10} className="text-white/70 mr-1" />
+                            <LinkIcon size={10} className="text-white/70 mr-1" />
                             <h4 className="text-xs uppercase tracking-wider font-medium text-white/70">
                               Connected Nodes
                             </h4>

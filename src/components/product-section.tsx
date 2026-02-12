@@ -12,6 +12,7 @@ import RadialOrbitalTimeline from "@/components/ui/radial-orbital-timeline";
 const timelineData = [
   {
     id: 1,
+    slug: "prahnova",
     title: "PRAHNOVA",
     date: "Lesson Creation",
     content:
@@ -24,6 +25,7 @@ const timelineData = [
   },
   {
     id: 2,
+    slug: "prahneva",
     title: "PRAHNEVA",
     date: "Adaptive Learning",
     content:
@@ -36,6 +38,7 @@ const timelineData = [
   },
   {
     id: 3,
+    slug: "prahtechna",
     title: "PRAHTECHNA",
     date: "AI Tutor",
     content:
@@ -48,6 +51,7 @@ const timelineData = [
   },
   {
     id: 4,
+    slug: "prahdata",
     title: "PRAHDATA",
     date: "Intelligence",
     content:
@@ -60,6 +64,7 @@ const timelineData = [
   },
   {
     id: 5,
+    slug: "prahlogix",
     title: "PRAHLOGIX",
     date: "Orchestration",
     content:
