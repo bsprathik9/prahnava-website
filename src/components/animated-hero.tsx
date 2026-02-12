@@ -28,7 +28,7 @@ const taglines = [
 
 export function AnimatedHero() {
   return (
-    <section className="w-full relative overflow-hidden pt-32 md:pt-40 lg:pt-48 pb-4">
+    <section className="w-full relative overflow-hidden pt-32 md:pt-40 lg:pt-48 pb-12 md:pb-16">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-violet-600/20 rounded-full blur-[128px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-cyan-500/15 rounded-full blur-[128px]" />
