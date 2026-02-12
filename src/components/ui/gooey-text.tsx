@@ -138,14 +138,14 @@ export function GooeyText({
           </span>
         )}
         <div
-          className={prefixText ? "relative" : "relative w-full"}
+          className={prefixText ? "relative inline-block min-w-[300px] md:min-w-[400px] lg:min-w-[500px]" : "relative w-full"}
           style={{ filter: "url(#gooey-threshold)" }}
         >
           <span
             ref={text1Ref}
             className={cn(
               prefixText
-                ? "select-none whitespace-nowrap"
+                ? "select-none whitespace-nowrap inline-block"
                 : "absolute inset-0 flex items-center justify-center select-none",
               textClassName
             )}
@@ -154,7 +154,7 @@ export function GooeyText({
             ref={text2Ref}
             className={cn(
               prefixText
-                ? "absolute left-0 select-none whitespace-nowrap"
+                ? "absolute left-0 top-0 select-none whitespace-nowrap inline-block"
                 : "absolute inset-0 flex items-center justify-center select-none",
               textClassName
             )}
